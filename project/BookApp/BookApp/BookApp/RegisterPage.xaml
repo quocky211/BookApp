@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookApp.RegisterPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="background.jpg">
+    <ContentPage.Content >
+        <StackLayout Padding="30" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Image Source="Logo.png" WidthRequest="150" HeightRequest="150" />
+            <Entry x:Name="txtusername" Placeholder="Tên đăng nhập" TextColor="Black" PlaceholderColor="Black" FontSize="22" />
+            <Entry x:Name="txtfullname" Placeholder="Họ tên" TextColor="Black" PlaceholderColor="Black" FontSize="22" />
+            <Entry x:Name="txtemail" Placeholder="Email" Keyboard="Email" TextColor="Black" PlaceholderColor="Black" FontSize="22" />
+            <Entry x:Name="txtpassword" Placeholder="Mật khẩu" IsPassword="True" TextColor="Black" PlaceholderColor="Black" FontSize="22" />
+            <Button x:Name="regisButton" Text="Đăng ký" TextColor="Black" Margin="0,20,0,0" FontSize="22" BackgroundColor="Transparent"
+                   BorderColor="Black" BorderWidth="1.5" CornerRadius="50" FontAttributes="Bold" Clicked="regisButton_Clicked" />
+            <Label HorizontalOptions="Center" Margin="0,15,0,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Bạn đã có tài khoản?" TextColor="Gray" FontSize="22" />
+                        <Span Text="Đăng nhập"
+                              TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline" FontSize="22" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="Login" Tapped="Login_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
