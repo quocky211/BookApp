@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieApp.HomePage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Azure">
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <Frame BackgroundColor="Aqua" HeightRequest="30" Padding="10">
+                    <SearchBar Placeholder="Nhập sản phẩm..." PlaceholderColor="Gray" TextChanged="SearchBar_TextChanged" BackgroundColor="Azure" CancelButtonColor="Red" />
+                </Frame>
+                <CarouselView x:Name="banner" HeightRequest="170">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding SlideImg}" Aspect="AspectFill" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <CollectionView x:Name="Lstproducts" SelectionMode="Single" SelectionChanged="Lstproducts_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="5" HorizontalItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding hinh}" Grid.Row="0" WidthRequest="90" HeightRequest="90" />
+                                <StackLayout Grid.Row="1" Orientation="Vertical">
+                                    <Label Text="{Binding name}" FontSize="20" TextColor="Black" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding price}" TextColor="Black" FontSize="18" HorizontalOptions="StartAndExpand" />
+                                        <Image x:Name="LikeImg" Source="FavouriteBlackIcon.png" HorizontalOptions="End"
+                                               VerticalOptions="Center" Aspect="AspectFill" HeightRequest="20" WidthRequest="20">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer x:Name="ImgAddToWishList" Tapped="ImgAddToWishList_Tapped" NumberOfTapsRequired="1" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
