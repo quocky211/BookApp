@@ -34,7 +34,9 @@ namespace TechieApp
             var kqtv = await kq.Content.ReadAsStringAsync();
             user=JsonConvert.DeserializeObject<User>(kqtv);
             if (user.MA >0)
-            {
+            {   
+                User.user=user;
+                User.order.LstProduct = new List<Product>();
                 await DisplayAlert("Thông báo", "Đăng ký thành công", "OK");
                 await Shell.Current.GoToAsync("//Home");
 

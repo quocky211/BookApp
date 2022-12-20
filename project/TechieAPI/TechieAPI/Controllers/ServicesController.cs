@@ -33,7 +33,7 @@ namespace TechieAPI.Controllers
         {
             try
             {
-                DataTable tb = Models.Database.LstProductByType(loai);
+                DataTable tb = Database.LstProductByType(loai);
 
                 return Ok(tb);
             }
@@ -67,6 +67,21 @@ namespace TechieAPI.Controllers
                 User user = Database.UserLogin(TENDN, MATKHAU);
 
                 return Ok(user);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/ServiceController/AddOrder")]
+        [HttpPost]
+        public IHttpActionResult AddOrder(Order order)
+        {
+            try
+            {
+                int kq = Database.AddOrder(order);
+                return Ok(kq);
             }
             catch
             {

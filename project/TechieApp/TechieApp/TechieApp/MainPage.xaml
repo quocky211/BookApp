@@ -17,6 +17,14 @@
              Title="Thể loại">
             <ShellContent ContentTemplate="{DataTemplate local:TypeProductPage}" />
         </Tab>
+        <Tab Icon="logoCart.png"
+             Title="Giỏ hảng">
+            <ShellContent ContentTemplate="{DataTemplate local:CartPage}" />
+        </Tab>
+        <Tab Icon="logoUser.png"
+             Title="Tài khoản">
+            <ShellContent ContentTemplate="{DataTemplate local:UserPage}" />
+        </Tab>
     </TabBar>
 
 </Shell>

@@ -12,6 +12,6 @@ namespace TechieApp
         public string name { get; set; }
         public string hinh { get; set; }
         public string mota { get; set; }
-       
+        public int SLuong { get; set; }
     }
 }

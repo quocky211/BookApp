@@ -24,5 +24,26 @@ namespace TechieApp
             Intro.BindingContext = product;
         }
 
+        private void Buy_btn_Clicked(object sender, EventArgs e)
+        {   
+            Button bt = (Button)sender;
+            Product selectedProduct = (Product)bt.BindingContext;
+            bool chon = false;
+            foreach(Product product in User.order.LstProduct)
+            {
+                if (selectedProduct.maSp ==product.maSp)
+                {
+                    product.SLuong++;
+                    chon = true;
+                    break;
+                }
+            }
+            if (chon==false)
+            {
+                selectedProduct.SLuong=1;
+                User.order.LstProduct.Add(selectedProduct);
+            }
+            DisplayAlert("Thông báo", "Đã thêm vào giỏ hàng", "OK");
+        }
     }
 }

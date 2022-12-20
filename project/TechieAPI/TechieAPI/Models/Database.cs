@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Data.Odbc;
 
 namespace TechieAPI.Models
 {
@@ -141,8 +142,33 @@ namespace TechieAPI.Models
             else
                 kq.MA = 0;
             return kq;
+        }
 
-
+        public static int AddOrder(Order order)
+        {
+            //khai bao datatable chua ds hang
+            DataTable tb = new DataTable();
+            tb.Columns.Add("maSp", typeof(int));
+            tb.Columns.Add("SLuong", typeof(int));
+            tb.Columns.Add("price", typeof(float));
+            tb.Columns.Add("Sum", typeof(float));
+            foreach (Product product in order.LstProduct)
+            {
+                DataRow r = tb.NewRow();
+                r["maSp"] = product.maSp;
+                r["SLuong"] = product.SLuong;
+                r["price"] = product.price;
+                r["Sum"] = product.SLuong * product.price;
+                tb.Rows.Add(r);
+            }
+            tb.AcceptChanges();
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("MaUser", order.MaUser);
+            param.Add("Address", order.Address);
+            param.Add("Message", order.Message);
+            param.Add("t", tb);
+            int kq = int.Parse(Exec_Command("AddOrder", param).ToString());
+            return kq;
         }
 
     }

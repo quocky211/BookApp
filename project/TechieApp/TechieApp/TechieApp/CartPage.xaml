@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieApp.CartPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Azure">
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <CollectionView x:Name="Lstprocarts" SelectionMode="Single" SelectionChanged="Lstprocarts_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding hinh}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" WidthRequest="90"  HeightRequest="90" />
+                                <Label Text="{Binding name}" Grid.Row="0" Grid.Column="1" FontSize="20" TextColor="Black" />
+                                <Label Text="{Binding price}" Grid.Row="1" Grid.Column="1" TextColor="Black" FontSize="18" />
+                                <Entry Text="{Binding SLuong}" Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="18"/>
+                                <Button x:Name="Update_btn" Text="Cập nhật" Grid.Row="3" Grid.Column="0" Clicked="Update_btn_Clicked"/>
+                                <Button x:Name="Delete_btn" Text="Xóa" Grid.Row="3" Grid.Column="1" Clicked="Delete_btn_Clicked"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Tổng tiền: " TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center"/>
+                    <Label Text="20000" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center"/>
+                    <Button x:Name="Buy_btn" Text="Mua ngay" TextColor="White" BackgroundColor="Red" CornerRadius="15"
+                            Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Clicked="Buy_btn_Clicked" HorizontalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

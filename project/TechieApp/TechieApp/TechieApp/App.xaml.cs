@@ -11,6 +11,9 @@ namespace TechieApp
             InitializeComponent();
 
             MainPage = new MainPage();
+            User.user = new User();
+            User.order = new Order();
+            User.order.LstProduct = new System.Collections.Generic.List<Product>();
         }
 
         protected override void OnStart()

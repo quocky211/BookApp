@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj": {}
+    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj": {
+    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj",
+        "projectUniqueName": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj",
         "projectName": "TechieApp.iOS",
-        "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj",
+        "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\obj\\",
+        "outputPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj": {
-                "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj"
+              "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj": {
+                "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj"
               }
             }
           }
@@ -45,6 +45,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2, )"
+            },
+            "Xam.Plugins.Forms.ImageCircle": {
+              "target": "Package",
+              "version": "[3.0.0.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -69,14 +73,14 @@
         }
       }
     },
-    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj": {
+    "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj",
+        "projectUniqueName": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj",
         "projectName": "TechieApp",
-        "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj",
+        "projectPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\TechieApp.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\project\\TechieApp\\TechieApp\\TechieApp\\obj\\",
+        "outputPath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -119,6 +123,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2, )"
+            },
+            "Xam.Plugins.Forms.ImageCircle": {
+              "target": "Package",
+              "version": "[3.0.0.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
