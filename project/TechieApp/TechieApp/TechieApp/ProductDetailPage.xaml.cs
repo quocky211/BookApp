@@ -22,6 +22,7 @@ namespace TechieApp
         {
             InitializeComponent();
             Intro.BindingContext = product;
+            Title = product.name;
         }
 
         private void Buy_btn_Clicked(object sender, EventArgs e)

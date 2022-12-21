@@ -10,5 +10,6 @@ namespace TechieApp
         public string Address { get; set; }
         public string Message { get; set; }
         public List<Product> LstProduct { get; set; }
+        public int SumMoney { get; set; }
     }
 }

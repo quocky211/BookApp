@@ -7,7 +7,7 @@
             <StackLayout x:Name="Intro" Orientation="Vertical" VerticalOptions="Start" Margin="0" Padding="10">
                 <Image Source="{Binding hinh}"  Aspect="AspectFill" />
                     <Label Text="{Binding name}"  FontSize="24" FontAttributes="Bold" TextColor="Black" />
-                    <Label Text="{Binding price}"  TextColor="Red" FontSize="20" FontAttributes="Bold" />
+                <Label Text="{Binding price , StringFormat='{0:N0} đ'}"  TextColor="Red" FontSize="20" FontAttributes="Bold" />
                     <Button x:Name="Buy_btn" Text="Thêm vào giỏ hàng" TextColor="Azure" BackgroundColor="OrangeRed" FontSize="20"
                             CornerRadius="10" HorizontalOptions="Center" VerticalOptions="End" Clicked="Buy_btn_Clicked"/>
                 <Label Text="Giới thiệu" TextColor="Black" FontSize="22" FontAttributes="Bold" />

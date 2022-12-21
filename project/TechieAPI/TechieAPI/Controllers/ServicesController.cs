@@ -26,6 +26,21 @@ namespace TechieAPI.Controllers
                 return NotFound();
             }
         }
+        [Route("api/ServiceController/ListType")]
+        [HttpGet]
+        public IHttpActionResult ListType()
+        {
+            try
+            {
+                DataTable tb = Database.ListType();
+
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
 
         [Route("api/ServiceController/ListProductByType")]
         [HttpGet]

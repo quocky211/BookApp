@@ -38,6 +38,7 @@ namespace TechieApp
                 await DisplayAlert("Thông báo", "Đặt hàng thành công", "OK");
 
                 User.order.LstProduct = new List<Product>();
+                User.order = new Order();
             }
             else
                 await DisplayAlert("Thông báo", "Them dữ liệu Lỗi", "ok");

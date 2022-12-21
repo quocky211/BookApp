@@ -25,7 +25,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding hinh}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" WidthRequest="90"  HeightRequest="90" />
                                 <Label Text="{Binding name}" Grid.Row="0" Grid.Column="1" FontSize="20" TextColor="Black" />
-                                <Label Text="{Binding price}" Grid.Row="1" Grid.Column="1" TextColor="Black" FontSize="18" />
+                                <Label Text="{Binding price , StringFormat='{0:N0} đ'}" Grid.Row="1" Grid.Column="1" TextColor="Red" FontSize="18" />
                                 <Entry Text="{Binding SLuong}" Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="18"/>
                                 <Button x:Name="Update_btn" Text="Cập nhật" Grid.Row="3" Grid.Column="0" Clicked="Update_btn_Clicked"/>
                                 <Button x:Name="Delete_btn" Text="Xóa" Grid.Row="3" Grid.Column="1" Clicked="Delete_btn_Clicked"/>
@@ -33,7 +33,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Grid>
+                <Grid x:Name="SumMoney" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
@@ -42,8 +42,10 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <Label Text="Tổng tiền: " TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center"/>
-                    <Label Text="20000" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center"/>
+                    <Label Text="Tổng tiền: " TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"
+                           FontSize="20" FontAttributes="Bold"/>
+                    <Label x:Name="txtSum" Text="{Binding SumMoney , StringFormat='{0:N0} đ'}" Grid.Column="0" FontSize="20" FontAttributes="Bold"
+                           Grid.Row="1" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <Button x:Name="Buy_btn" Text="Mua ngay" TextColor="White" BackgroundColor="Red" CornerRadius="15"
                             Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Clicked="Buy_btn_Clicked" HorizontalOptions="Center"/>
                 </Grid>

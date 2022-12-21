@@ -101,11 +101,15 @@ namespace TechieAPI.Models
         {
             return Read_Table("ListProduct");
         }
-        public static DataTable LstProductByType(int maloai)
+        public static DataTable ListType()
+        {
+            return Read_Table("ListType");
+        }
+        public static DataTable LstProductByType(int loai)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("loai", maloai);
-            return Read_Table("ListProductByType", param);
+            param.Add("loai", loai);
+            return Read_Table("ListProductByType", param); 
         }
 
         public static User ThemUser(User user)
