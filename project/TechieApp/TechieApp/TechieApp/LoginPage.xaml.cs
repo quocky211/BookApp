@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -18,11 +19,10 @@ namespace TechieApp
         {
             InitializeComponent();
         }
-        private async void loginButton_Clicked(object sender, EventArgs e)
+         async void loginButton_Clicked(object sender, EventArgs e)
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync
-                ("http://192.168.1.26/TechieAPI/api/ServiceController/UserLogin?TENDN=" + txtusername.Text + "&&MATKHAU=" + txtpassword.Text);
+            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/ServiceController/UserLogin?TENDN=" + txtusername.Text + "&&MATKHAU=" + txtpassword.Text);
             var user = JsonConvert.DeserializeObject<User>(kq);
             if (user.HOTEN != "" && user.HOTEN != null)
             {

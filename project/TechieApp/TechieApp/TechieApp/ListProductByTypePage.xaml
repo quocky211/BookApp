@@ -6,15 +6,23 @@
         <ScrollView BackgroundColor="Azure">
             <StackLayout Orientation="Vertical"
                          Spacing="0">
-                <Frame BackgroundColor="Aqua"
-                       HeightRequest="30"
-                       Padding="10">
-                    <SearchBar Placeholder="Nhập sản phẩm..."
-                               PlaceholderColor="Gray"
-                               TextChanged="SearchBar_TextChanged"
-                               BackgroundColor="Azure"
-                               CancelButtonColor="Red" />
-                </Frame>
+                <StackLayout Orientation="Horizontal" HeightRequest="50">
+                    <Frame BackgroundColor="Aqua"
+                           HeightRequest="30"
+                           Padding="10">
+                        <SearchBar Placeholder="Nhập sản phẩm..."
+                                   PlaceholderColor="Gray"
+                                   TextChanged="SearchBar_TextChanged"
+                                   BackgroundColor="Azure"
+                                   CancelButtonColor="Red" />
+                    </Frame>
+                    <Image x:Name="Filter" Source="filter_icon.png" WidthRequest="20" HeightRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Filter_btn" Tapped="Filter_btn_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    
+                </StackLayout>
                 <CollectionView x:Name="LstproductsByType"
                                 SelectionMode="Single"
                                 SelectionChanged="LstproductsByType_SelectionChanged">

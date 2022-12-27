@@ -30,7 +30,7 @@ namespace TechieApp
             HttpClient http = new HttpClient();
             string jsonuser = JsonConvert.SerializeObject(user);
             StringContent httpcontent = new StringContent(jsonuser,Encoding.UTF8,"application/json");
-            HttpResponseMessage kq = await http.PostAsync("http://192.168.1.26/TechieAPI/api/ServiceController/ThemUser", httpcontent);
+            HttpResponseMessage kq = await http.PostAsync("http://192.168.1.6/TechieAPI/api/ServiceController/ThemUser", httpcontent);
             var kqtv = await kq.Content.ReadAsStringAsync();
             user=JsonConvert.DeserializeObject<User>(kqtv);
             if (user.MA >0)

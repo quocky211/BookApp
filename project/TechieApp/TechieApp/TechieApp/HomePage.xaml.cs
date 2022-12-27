@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
@@ -16,7 +17,7 @@ namespace TechieApp
     public partial class HomePage : ContentPage
     {
         private int tapCount = 0;
-        public static List<Product> ProductLists;
+        public static ObservableCollection<Product> ProductLists;
         public void AddSlideImage()
         {
             List<SlideImage> slideImages = new List<SlideImage>();
@@ -35,8 +36,8 @@ namespace TechieApp
         public async void ListProductAPI()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.26/TechieAPI/api/product/ListProduct");
-            var dsproduct = JsonConvert.DeserializeObject<List<Product>>(kq);
+            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/product/ListProduct");
+            var dsproduct = JsonConvert.DeserializeObject<ObservableCollection<Product>>(kq);
             ProductLists = dsproduct;
             Lstproducts.ItemsSource = dsproduct;
         }

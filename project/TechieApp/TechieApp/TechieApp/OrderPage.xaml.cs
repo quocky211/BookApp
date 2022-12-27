@@ -30,7 +30,7 @@ namespace TechieApp
             StringContent httcontent = new StringContent(jsonLstproducts, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
 
-            kq = await http.PostAsync("http://192.168.1.26/TechieAPI/api/ServiceController/AddOrder", httcontent);
+            kq = await http.PostAsync("http://192.168.1.6/TechieAPI/api/ServiceController/AddOrder", httcontent);
 
             var kqtv = await kq.Content.ReadAsStringAsync();
             if (int.Parse(kqtv.ToString()) > 0)

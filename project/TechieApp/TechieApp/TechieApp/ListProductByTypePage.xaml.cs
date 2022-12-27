@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TechieApp.Model;
+using System.Collections.ObjectModel;
 
 namespace TechieApp
 {
@@ -15,7 +18,7 @@ namespace TechieApp
     public partial class ListProductByTypePage : ContentPage
     {
         private int tapCount = 0;
-        public static List<Product> ProductLists;
+        public static ObservableCollection<Product> ProductLists;
 
         public ListProductByTypePage()
         {
@@ -24,11 +27,14 @@ namespace TechieApp
         public async void ProductByType(Loai loai)
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync
-              ("http://192.168.1.26/TechieAPI/api/ServiceController/ListProductByType?loai=" + loai.MA.ToString());
-            var dslh = JsonConvert.DeserializeObject<List<Product>>(kq);
+            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/ServiceController/ListProductByType?loai=" + loai.MA.ToString());
+            var dslh = JsonConvert.DeserializeObject<ObservableCollection<Product>>(kq);
             ProductLists = dslh;
             LstproductsByType.ItemsSource = dslh;
+
+            Exchange.Data.MyCoView = LstproductsByType;
+            Exchange.Data.Xes = dslh;
+
         }
         public ListProductByTypePage(Loai loai)
         {
@@ -60,6 +66,11 @@ namespace TechieApp
             {
                 imgSource.Source = "FavouriteBlackIcon.png";
             }
+        }
+        [Obsolete]
+        private async void Filter_btn_Tapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.PushAsync(new PageFilter());
         }
     }
 }

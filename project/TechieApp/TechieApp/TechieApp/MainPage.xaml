@@ -14,7 +14,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
         </Tab>
         <Tab Icon="TypeBook.png"
-             Title="Thể loại">
+             Title="Danh mục">
             <ShellContent ContentTemplate="{DataTemplate local:TypeProductPage}" />
         </Tab>
         <Tab Icon="logoCart.png"

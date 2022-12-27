@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 x:Class="TechieApp.PageFilter"
+                 xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                 xmlns:behavior1="clr-namespace:TechieApp.Model">
+    <ContentView x:Name="ViewToMove">
+        <ContentView.Behaviors>
+            <behavior1:SwipeDownToClosePopupPage ParentView="{x:Reference ViewToMove}" />
+        </ContentView.Behaviors>
+        <StackLayout Margin="0">
+            <Frame CornerRadius="15" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" HeightRequest="250">
+                <StackLayout Margin="-20,0,-20,0">
+                    <Image Source="close.png"
+                           WidthRequest="20"
+                           HeightRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Close_btn"
+                                                  Tapped="Close_btn_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Giá sản phẩm"
+                           Margin="10"
+                           TextColor="Black"
+                           FontSize="20"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label x:Name="min"
+                                               FontSize="15"
+                                               TextColor="Black" />
+                                        <Label x:Name="max"
+                                               FontSize="15"
+                                               TextColor="Black"
+                                               Margin="0,0,20,0" />
+                                    </StackLayout>
+                    <xct:RangeSlider Margin="22,0,22,0"
+                                                     x:Name="RangeSlider"
+                                                     MaximumValue="5000000"
+                                                     ThumbBorderColor="#00bcc3"
+                                                     MinimumValue="0"
+                                                     StepValue="100000"
+                                                     LowerValue="0"
+                                                     UpperValue="5000000"
+                                                     ThumbSize="20"
+                                                     ThumbColor="#00bcc3"
+                                                     TrackSize="4"
+                                                     TrackColor="LightGray"
+                                                     TrackHighlightColor="#00bcc3"
+                                                     ValueLabelSpacing="1"
+                                                     ValueChanged="RangeSlider_ValueChanged"
+                                                     ValueLabelStringFormat=""></xct:RangeSlider>
+                    <Button
+                                    Margin="15"
+                                    Clicked="Submit_Clicked"
+                                    BackgroundColor="#00bcc3"
+                                    TextColor="white"
+                                    Text="Áp dụng"
+                                    BorderWidth="1"
+                                    FontSize="17"
+                                    CornerRadius="10" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView>
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation PositionIn="Bottom" PositionOut="Bottom"
+                                  DurationIn="400" DurationOut="300" HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+</pages:PopupPage>

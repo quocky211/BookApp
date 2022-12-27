@@ -127,3 +127,6 @@ D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\ob
 D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\obj\iPhone\Debug\TechieApp.iOS.exe
 D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\obj\iPhone\Debug\TechieApp.iOS.pdb
 D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\bin\iPhone\Debug\ImageCircle.Forms.Plugin.dll
+D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\bin\iPhone\Debug\Rg.Plugins.Popup.dll
+D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\bin\iPhone\Debug\Rg.Plugins.Popup.pdb
+D:\Study\Nam3\HKI\TAN_PEO\TechieApp\project\TechieApp\TechieApp\TechieApp.iOS\bin\iPhone\Debug\Xamarin.CommunityToolkit.dll

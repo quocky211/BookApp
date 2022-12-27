@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "6uBmYSDmuKnaveiKKIGEcyuP9bcxxMCBB7K2RZR+IXRrTyn0Cf01KE+uNAWkAkmT6IKydnu27gGGTtRlvJ7OYQ==",
+  "dgSpecHash": "+Au9BcP9EZ7ZaVRVWZ+zPhoQMIljsKeKknoit5TObl60rq4mSX0P4mFsanMqM0FBEOhGYM7uSJAhERj91j/JBQ==",
   "success": true,
   "projectFilePath": "D:\\Study\\Nam3\\HKI\\TAN_PEO\\TechieApp\\project\\TechieApp\\TechieApp\\TechieApp.iOS\\TechieApp.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\rg.plugins.popup\\2.1.0\\rg.plugins.popup.2.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.0.0.5\\xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\xamarin.communitytoolkit\\2.0.5\\xamarin.communitytoolkit.2.0.5.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\PC\\.nuget\\packages\\xamarin.forms\\5.0.0.2337\\xamarin.forms.5.0.0.2337.nupkg.sha512"
   ],
   "logs": []
 }
