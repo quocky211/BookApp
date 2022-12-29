@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,15 +37,31 @@ namespace TechieApp
         public async void ListProductAPI()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/product/ListProduct");
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/product/ListProduct");
             var dsproduct = JsonConvert.DeserializeObject<ObservableCollection<Product>>(kq);
             ProductLists = dsproduct;
             Lstproducts.ItemsSource = dsproduct;
+        }
+        public async void LstType()
+        {
+            HttpClient http = new HttpClient();
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/ServiceController/ListType");
+            var dstype = JsonConvert.DeserializeObject<List<Loai>>(kq);
+            ListType.ItemsSource = dstype;
+        }
+        public async void ListProductHot()
+        {
+            HttpClient http = new HttpClient();
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/ServiceController/LstProductHot");
+            var dshot = JsonConvert.DeserializeObject<ObservableCollection<Product>>(kq);
+            Lsthot.ItemsSource = dshot;
         }
         public HomePage()
         {
             InitializeComponent();
             AddSlideImage();
+            LstType();
+            ListProductHot();
             ListProductAPI();
         }
 
@@ -68,10 +85,24 @@ namespace TechieApp
             Lstproducts.ItemsSource = ProductLists.Where(Product => Product.name.ToLower().Contains(e.NewTextValue));
         }
 
+        [Obsolete]
         private void Lstproducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Product selectedProduct = (Product)Lstproducts.SelectedItem;
-            Navigation.PushAsync(new ProductDetailPage(selectedProduct));
+            var a = e.CurrentSelection.FirstOrDefault() as Product;
+            PopupNavigation.PushAsync(new ProductDetailPage(a));
+        }
+
+        private void ListType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Loai selectedLoai = (Loai)ListType.SelectedItem;
+            Navigation.PushAsync(new ListProductByTypePage(selectedLoai));
+        }
+
+        [Obsolete]
+        private void Lsthot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var a = e.CurrentSelection.FirstOrDefault() as Product;
+            PopupNavigation.PushAsync(new ProductDetailPage(a));
         }
     }
 }

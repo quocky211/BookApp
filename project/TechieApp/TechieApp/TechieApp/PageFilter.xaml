@@ -11,7 +11,7 @@
             <behavior1:SwipeDownToClosePopupPage ParentView="{x:Reference ViewToMove}" />
         </ContentView.Behaviors>
         <StackLayout Margin="0">
-            <Frame CornerRadius="15" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" HeightRequest="250">
+            <Frame CornerRadius="15" BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="250">
                 <StackLayout Margin="-20,0,-20,0">
                     <Image Source="close.png"
                            WidthRequest="20"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -66,11 +67,11 @@ namespace TechieApp
             Lstprocarts.ItemsSource = null;
             Lstprocarts.ItemsSource = User.order.LstProduct;
         }
-
+        [Obsolete]
         private void Lstprocarts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Product selectedProduct = (Product)Lstprocarts.SelectedItem;
-            Navigation.PushAsync(new ProductDetailPage(selectedProduct));
+            var a = e.CurrentSelection.FirstOrDefault() as Product;
+            PopupNavigation.PushAsync(new ProductDetailPage(a));
         }
 
         private void Buy_btn_Clicked(object sender, EventArgs e)

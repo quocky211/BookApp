@@ -11,6 +11,7 @@
             <Image Source="Logo.png" WidthRequest="150" HeightRequest="150" />
             <Entry x:Name="txtfullname" Placeholder="Họ và tên" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />
             <Entry x:Name="txtusername" Placeholder="Tên đăng nhập" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />
+            <Entry x:Name="txtaddress" Placeholder="Địa chỉ" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />
             <Entry x:Name="txtemail" Placeholder="Email" Keyboard="Email" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />
             <Entry x:Name="txtpassword" Placeholder="Mật khẩu" IsPassword="True" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />
             <Entry x:Name="txtpassword1" Placeholder="Nhập lại mật khẩu" IsPassword="True" TextColor="LightGray" PlaceholderColor="LightGray" FontSize="22" />

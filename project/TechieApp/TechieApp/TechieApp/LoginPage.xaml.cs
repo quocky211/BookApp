@@ -22,7 +22,7 @@ namespace TechieApp
          async void loginButton_Clicked(object sender, EventArgs e)
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/ServiceController/UserLogin?TENDN=" + txtusername.Text + "&&MATKHAU=" + txtpassword.Text);
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/ServiceController/UserLogin?TENDN=" + txtusername.Text + "&&MATKHAU=" + txtpassword.Text);
             var user = JsonConvert.DeserializeObject<User>(kq);
             if (user.HOTEN != "" && user.HOTEN != null)
             {

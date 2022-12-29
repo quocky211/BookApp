@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace TechieApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductDetailPage : ContentPage
+    public partial class ProductDetailPage : Rg.Plugins.Popup.Pages.PopupPage
     {   
         public ProductDetailPage()
         {
@@ -22,7 +23,6 @@ namespace TechieApp
         {
             InitializeComponent();
             Intro.BindingContext = product;
-            Title = product.name;
         }
 
         private void Buy_btn_Clicked(object sender, EventArgs e)
@@ -45,6 +45,12 @@ namespace TechieApp
                 User.order.LstProduct.Add(selectedProduct);
             }
             DisplayAlert("Thông báo", "Đã thêm vào giỏ hàng", "OK");
+        }
+
+        [Obsolete]
+        private async void Back_btn_Tapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.PopAsync();
         }
     }
 }

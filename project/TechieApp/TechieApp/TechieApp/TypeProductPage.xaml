@@ -4,33 +4,34 @@
              x:Class="TechieApp.TypeProductPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="Azure">
-            <CollectionView x:Name="Lsttypeofproducts"
-                            SelectionMode="Single"
-                            SelectionChanged="Lsttypeofproducts_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="5" HorizontalItemSpacing="5" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding HINH}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" 
-                                   WidthRequest="150" HeightRequest="150" Aspect="AspectFit"  Opacity="0.6" />
-                            <Label Text="{Binding NAMETYPE}"  FontSize="20" TextColor="Black"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                                   HorizontalOptions="Center" VerticalOptions="Center"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <ScrollView BackgroundColor="White" Padding="15">
+            <StackLayout>
+                <Label Text="Danh mục sản phẩm" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+                <CollectionView x:Name="Lsttypeofproducts"
+                                SelectionMode="Single"
+                                SelectionChanged="Lsttypeofproducts_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="2"
+                                         VerticalItemSpacing="10"
+                                         HorizontalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical" Margin="15">
+                                <Image Source="{Binding HINH}"
+                                       HeightRequest="120"
+                                       WidthRequest="120"
+                                       HorizontalOptions="Center" Margin="0,15,0,0" />
+                                <Label Text="{Binding NAMETYPE}"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       TextColor="Black" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

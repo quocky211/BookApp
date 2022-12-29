@@ -11,6 +11,7 @@ namespace TechieAPI.Models
         public string HOTEN { get; set; }
         public string TENDN { get; set; }
         public string MATKHAU { get; set; }
+        public string DIACHI { get; set; }
         public string EMAIL { get; set; }
 
     }

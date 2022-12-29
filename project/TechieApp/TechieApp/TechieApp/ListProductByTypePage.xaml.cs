@@ -27,7 +27,7 @@ namespace TechieApp
         public async void ProductByType(Loai loai)
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/ServiceController/ListProductByType?loai=" + loai.MA.ToString());
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/ServiceController/ListProductByType?loai=" + loai.MA.ToString());
             var dslh = JsonConvert.DeserializeObject<ObservableCollection<Product>>(kq);
             ProductLists = dslh;
             LstproductsByType.ItemsSource = dslh;
@@ -40,13 +40,17 @@ namespace TechieApp
         {
             InitializeComponent();
             ProductByType(loai);
-            Title = loai.NAMETYPE;
+            txttype.Text = loai.NAMETYPE;
         }
 
+        [Obsolete]
         private void LstproductsByType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Product selectedProduct = (Product)LstproductsByType.SelectedItem;
-            Navigation.PushAsync(new ProductDetailPage(selectedProduct));
+            // Product selectedProduct = (Product)LstproductsByType.SelectedItem;
+            // Navigation.PushAsync(new ProductDetailPage(selectedProduct));
+
+            var a = e.CurrentSelection.FirstOrDefault() as Product;
+            PopupNavigation.PushAsync(new ProductDetailPage(a));
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
@@ -71,6 +75,11 @@ namespace TechieApp
         private async void Filter_btn_Tapped(object sender, EventArgs e)
         {
             await PopupNavigation.PushAsync(new PageFilter());
+        }
+
+        private void Back_btn_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

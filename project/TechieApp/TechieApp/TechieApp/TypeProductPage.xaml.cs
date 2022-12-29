@@ -17,7 +17,7 @@ namespace TechieApp
         public async void ListType()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.1.6/TechieAPI/api/ServiceController/ListType");
+            var kq = await http.GetStringAsync("http://192.168.1.13/TechieAPI/api/ServiceController/ListType");
             var dstype = JsonConvert.DeserializeObject<List<Loai>>(kq);
             Lsttypeofproducts.ItemsSource = dstype;
         }

@@ -4,52 +4,106 @@
              x:Class="TechieApp.CartPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="Azure">
-            <StackLayout Orientation="Vertical" Spacing="0">
-                <CollectionView x:Name="Lstprocarts" SelectionMode="Single" SelectionChanged="Lstprocarts_SelectionChanged">
+            <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="White">
+                <Label Text="Giỏ hàng của tôi" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="15"/>
+                <ScrollView Padding="15">
+                <CollectionView x:Name="Lstprocarts"
+                                SelectionMode="Single"
+                                SelectionChanged="Lstprocarts_SelectionChanged">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5" />
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="1"
+                                         VerticalItemSpacing="10" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                            <Grid Padding="10" ColumnSpacing="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="50"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding hinh}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" WidthRequest="90"  HeightRequest="90" />
-                                <Label Text="{Binding name}" Grid.Row="0" Grid.Column="1" FontSize="20" TextColor="Black" />
-                                <Label Text="{Binding price , StringFormat='{0:N0} đ'}" Grid.Row="1" Grid.Column="1" TextColor="Red" FontSize="18" />
-                                <Entry Text="{Binding SLuong}" Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="18"/>
-                                <Button x:Name="Update_btn" Text="Cập nhật" Grid.Row="3" Grid.Column="0" Clicked="Update_btn_Clicked"/>
-                                <Button x:Name="Delete_btn" Text="Xóa" Grid.Row="3" Grid.Column="1" Clicked="Delete_btn_Clicked"/>
+                                <Image Source="{Binding hinh}"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.RowSpan="4"
+                                       Aspect="Fill"/>
+                                <Label Text="{Binding name}"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding price , StringFormat='{0:N0} đ'}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       TextColor="Red"
+                                       FontSize="18" />
+                                <Label Text="Số lượng: " FontSize="20" TextColor="Black" Grid.Row="2" Grid.Column="1"/>
+                                <Entry Text="{Binding SLuong}"
+                                       Grid.Row="3"
+                                       Grid.Column="1"
+                                       TextColor="Black"
+                                       FontSize="18" />
+                                <Button x:Name="Update_btn"
+                                        Text="Cập nhật"
+                                        BackgroundColor="#6BD6F8"
+                                        CornerRadius="10"
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        TextColor="White"
+                                        Clicked="Update_btn_Clicked" />
+                                <Button x:Name="Delete_btn"
+                                        Text="Xóa"
+                                        Grid.Row="4"
+                                        CornerRadius="10"
+                                        BackgroundColor="#FF0000"
+                                        TextColor="White"
+                                        Grid.Column="1"
+                                        Clicked="Delete_btn_Clicked" />
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Grid x:Name="SumMoney" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Label Text="Tổng tiền: " TextColor="Black" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"
-                           FontSize="20" FontAttributes="Bold"/>
-                    <Label x:Name="txtSum" Text="{Binding SumMoney , StringFormat='{0:N0} đ'}" Grid.Column="0" FontSize="20" FontAttributes="Bold"
-                           Grid.Row="1" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Button x:Name="Buy_btn" Text="Mua ngay" TextColor="White" BackgroundColor="Red" CornerRadius="15"
-                            Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Clicked="Buy_btn_Clicked" HorizontalOptions="Center"/>
-                </Grid>
+            </ScrollView>
+            <StackLayout x:Name="SumMoney"
+                         VerticalOptions="End">
+                <BoxView HeightRequest="1"
+                         BackgroundColor="Black" />
+                <StackLayout Orientation="Horizontal" Padding="15">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Tổng tiền: "
+                               TextColor="Black"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontSize="20"
+                               FontAttributes="Bold"></Label>
+                        <Label x:Name="txtSum"
+                               Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="Red"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                    <Button x:Name="Buy_btn"
+                            Text="Mua ngay"
+                            TextColor="White"
+                            BackgroundColor="Red"
+                            CornerRadius="15"
+                            Clicked="Buy_btn_Clicked"
+                            HeightRequest="50"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center" />
+                </StackLayout>
+                <BoxView HeightRequest="1"
+                         BackgroundColor="Black" />
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

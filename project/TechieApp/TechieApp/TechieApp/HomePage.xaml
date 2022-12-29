@@ -4,46 +4,160 @@
              x:Class="TechieApp.HomePage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="Azure">
+        <ScrollView BackgroundColor="#EEFCFD" Padding="10">
             <StackLayout Orientation="Vertical" Spacing="0">
-                <Frame BackgroundColor="Aqua" HeightRequest="30" Padding="10">
-                    <SearchBar Placeholder="Nhập sản phẩm..." PlaceholderColor="Gray" TextChanged="SearchBar_TextChanged" BackgroundColor="Azure" CancelButtonColor="Red" />
+                <Frame  HeightRequest="30" Padding="10" HasShadow="False" CornerRadius="10">
+                    <SearchBar Placeholder="Nhập sản phẩm..." PlaceholderColor="Gray" HeightRequest="60" TextChanged="SearchBar_TextChanged" BackgroundColor="White" CancelButtonColor="Red" />
                 </Frame>
-                <CarouselView x:Name="banner" HeightRequest="170">
+                <CarouselView x:Name="banner" HeightRequest="170" Margin="0,15,0,0">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Image Source="{Binding SlideImg}" Aspect="AspectFill" />
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
-                <CollectionView x:Name="Lstproducts" SelectionMode="Single" SelectionChanged="Lstproducts_SelectionChanged">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="5" HorizontalItemSpacing="5" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Image Source="{Binding hinh}" Grid.Row="0" WidthRequest="90" HeightRequest="90" />
-                                <StackLayout Grid.Row="1" Orientation="Vertical">
-                                    <Label Text="{Binding name}" FontSize="20" TextColor="Black" />
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding price, StringFormat='{0:N0} đ'}" TextColor="Red" FontSize="18" HorizontalOptions="StartAndExpand" />
-                                        <Image x:Name="LikeImg" Source="FavouriteBlackIcon.png" HorizontalOptions="End"
-                                               VerticalOptions="Center" Aspect="AspectFill" HeightRequest="20" WidthRequest="20">
-                                            <Image.GestureRecognizers>
-                                                <TapGestureRecognizer x:Name="ImgAddToWishList" Tapped="ImgAddToWishList_Tapped" NumberOfTapsRequired="1" />
-                                            </Image.GestureRecognizers>
-                                        </Image>
+                <Frame BackgroundColor="White"
+                       CornerRadius="15"
+                       Margin="0,15,0,0" HeightRequest="180">
+                    <StackLayout>
+                        <CollectionView x:Name="ListType"
+                                        SelectionMode="Single"
+                                        SelectionChanged="ListType_SelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"
+                                                 Span="3"
+                                                 VerticalItemSpacing="15"
+                                                 HorizontalItemSpacing="15" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Vertical">
+                                        <Image Source="{Binding HINH}"
+                                               HeightRequest="50"
+                                               WidthRequest="50"
+                                               HorizontalOptions="Center" />
+                                        <Label Text="{Binding NAMETYPE}"
+                                               HorizontalOptions="Center"
+                                               TextColor="Black" />
                                     </StackLayout>
-                                </StackLayout>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+                <Frame Background="#E1F1FF" CornerRadius="15" Margin="0,15,0,0" HeightRequest="250">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Sản phẩm nổi bật" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+                        <CollectionView x:Name="Lsthot" SelectionMode="Single" SelectionChanged="Lsthot_SelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="15"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="White" CornerRadius="10" HeightRequest="190" WidthRequest="160" Padding="0" Margin="0">
+                                        <Grid Padding="0" Margin="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Image Source="{Binding hinh}"
+                                                   Grid.Row="0" Aspect="Fill"
+                                                   WidthRequest="90"
+                                                   HeightRequest="90" />
+                                            <StackLayout Grid.Row="1"
+                                                         Orientation="Vertical">
+                                                <Label Text="{Binding name}"
+                                                       FontSize="20" Margin="10,0,0,0"
+                                                       TextColor="Black" />
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding price, StringFormat='{0:N0} đ'}"
+                                                           TextColor="Red"
+                                                           FontSize="18" Margin="10,0,0,0"
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    <Image x:Name="LikeImg"
+                                                           Source="FavouriteBlackIcon.png"
+                                                           HorizontalOptions="End"
+                                                           VerticalOptions="Center" Margin="0,0,10,0"
+                                                           Aspect="AspectFill"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer x:Name="ImgAddToWishList"
+                                                                                  Tapped="ImgAddToWishList_Tapped"
+                                                                                  NumberOfTapsRequired="1" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+                <Frame Background="#E1F1FF" CornerRadius="15" Margin="0,15,0,0">
+                    <StackLayout Orientation="Vertical"
+                                 BackgroundColor="#E1F1FF">
+                        <Label Text="Tất cả sản phẩm "
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black" />
+                        <CollectionView x:Name="Lstproducts"
+                                        SelectionMode="Single"
+                                        SelectionChanged="Lstproducts_SelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"
+                                                 Span="2"
+                                                 VerticalItemSpacing="10"
+                                                 HorizontalItemSpacing="10" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="White" CornerRadius="10" HeightRequest="190" WidthRequest="160" Padding="0" Margin="0">
+                                        <Grid Padding="0"
+                                              Margin="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Image Source="{Binding hinh}"
+                                                   Grid.Row="0" Aspect="Fill"
+                                                   WidthRequest="90"
+                                                   HeightRequest="90" />
+                                            <StackLayout Grid.Row="1"
+                                                         Orientation="Vertical">
+                                                <Label Text="{Binding name}"
+                                                       FontSize="20" Margin="10,0,0,0"
+                                                       TextColor="Black" />
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding price, StringFormat='{0:N0} đ'}"
+                                                           TextColor="Red"
+                                                           FontSize="18" Margin="10,0,0,0"
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    <Image x:Name="LikeImg" Margin="0,0,10,0"
+                                                           Source="FavouriteBlackIcon.png"
+                                                           HorizontalOptions="End"
+                                                           VerticalOptions="Center"
+                                                           Aspect="AspectFill"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer x:Name="ImgAddToWishList"
+                                                                                  Tapped="ImgAddToWishList_Tapped"
+                                                                                  NumberOfTapsRequired="1" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

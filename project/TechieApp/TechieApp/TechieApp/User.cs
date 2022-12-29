@@ -11,6 +11,7 @@ namespace TechieApp
         public string TENDN { get; set; }
         public string MATKHAU { get; set; }
         public string EMAIL { get; set; }
+        public string DIACHI { get; set; }
 
         public static User user;
 

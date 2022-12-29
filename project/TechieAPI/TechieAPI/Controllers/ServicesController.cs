@@ -41,6 +41,21 @@ namespace TechieAPI.Controllers
                 return NotFound();
             }
         }
+        [Route("api/ServiceController/LstProductHot")]
+        [HttpGet]
+        public IHttpActionResult LstProductHot()
+        {
+            try
+            {
+                DataTable tb = Database.ListProductHot();
+
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
 
         [Route("api/ServiceController/ListProductByType")]
         [HttpGet]

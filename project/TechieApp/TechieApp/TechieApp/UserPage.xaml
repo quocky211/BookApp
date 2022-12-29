@@ -5,24 +5,152 @@
              x:Class="TechieApp.UserPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Image Source="bgAvatar.jpg" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Aspect="Fill" Opacity="0.6" />
-            <CI:CircleImage Source="avatarImg.jpg" WidthRequest="80" HeightRequest="80"
-                            Aspect="AspectFill" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0" />
-            <Label x:Name="txtname" FontAttributes="Bold" TextColor="Black"
-                   Grid.Column="1" Grid.Row="0" VerticalOptions="End" FontSize="18" Margin="10,0,0,0" />
-            <Label x:Name="txtgmail" FontAttributes="Bold" TextColor="Black"  Grid.Column="1" Grid.Row="1" 
-                   VerticalOptions="Start"  FontSize="18" Margin="10,0,0,0"/>
-        </Grid>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="bgAvatar.jpg"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Grid.RowSpan="2"
+                           Aspect="Fill"
+                           Opacity="0.6" />
+                    <CI:CircleImage Source="avatarImg.jpg"
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    Aspect="AspectFill"
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Margin="10,0,0,0" />
+                    <Label x:Name="txtname"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           VerticalOptions="End"
+                           FontSize="18"
+                           Margin="10,0,0,0" />
+                    <Label x:Name="txtgmail"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           VerticalOptions="Start"
+                           FontSize="18"
+                           Margin="10,0,0,0" />
+                </Grid>
+                <StackLayout Orientation="Vertical"
+                             Padding="15"
+                             BackgroundColor="White">
+                    <Label Text="THÔNG TIN CÁ NHÂN"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="Black" />
+                    <StackLayout x:Name="UpdateUser"
+                                 Orientation="Horizontal"
+                                 Margin="10">
+                        <Image Source="logoUser.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Cập nhật thông tin cá nhân"
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                    <StackLayout x:Name="Productbuy"
+                                 Orientation="Horizontal"
+                                 Margin="10">
+                        <Image Source="cart_logo.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Lịch sử mua hàng"
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                    <StackLayout x:Name="Productlove"
+                                 Orientation="Horizontal"
+                                 Margin="10">
+                        <Image Source="love_logo.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Sản phẩm yêu thích "
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                    <Label Text="THÔNG TIN HỖ TRỢ"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           Margin="0,20,0,0"
+                           TextColor="Black" />
+                    <StackLayout  Orientation="Horizontal"
+                                  Margin="10">
+                        <Image Source="voucher_logo.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Sự kiện/khuyến mãi"
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal"
+                                  Margin="10">
+                        <Image Source="AboutIcon.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Về chúng tôi"
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal"
+                                  Margin="10">
+                        <Image Source="help_logo.png"
+                               HeightRequest="25"
+                               WidthRequest="25" />
+                        <Label Text="Hỗ trợ khách hàng "
+                               FontSize="17"
+                               TextColor="Black"
+                               Margin="10,0,0,0" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             BackgroundColor="#f0f0f0"
+                             Padding="15"
+                             Margin="0,30,0,0">
+                    <Label Text="TECHIESHOP"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                    <Label Text="Cửa hàng phụ kiện công nghệ TechieShop"
+                           FontSize="16"
+                           TextColor="Black" />
+                    <Label Text="Flagship Store: Trường Đại học Công nghệ thông tin - ĐHQG TPHCM"
+                           FontSize="16"
+                           TextColor="Black" />
+                    <Label Text="Điện thoại: 0382421435"
+                           FontSize="16"
+                           TextColor="Black" />
+                    <Label Text="Email: support@techie.vn"
+                           FontSize="16"
+                           TextColor="Black" />
+                    <Label Text="Hân hạnh mang đến cho bạn những sản phẩm phụ kiện công nghệ chất lượng."
+                           FontSize="16"
+                           FontAttributes="Italic"
+                           TextColor="Black" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

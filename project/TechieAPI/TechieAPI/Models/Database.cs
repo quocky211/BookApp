@@ -105,6 +105,10 @@ namespace TechieAPI.Models
         {
             return Read_Table("ListType");
         }
+        public static DataTable ListProductHot()
+        {
+            return Read_Table("ListProductHot");
+        }
         public static DataTable LstProductByType(int loai)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
@@ -118,6 +122,7 @@ namespace TechieAPI.Models
             param.Add("HOTEN", user.HOTEN);
             param.Add("TENDN", user.TENDN);
             param.Add("MATKHAU", user.MATKHAU);
+            param.Add("DIACHI", user.DIACHI);
             param.Add("EMAIL", user.EMAIL);
             int kq = int.Parse(Exec_Command("AddUser", param).ToString());
             if(kq>-1)
@@ -141,6 +146,7 @@ namespace TechieAPI.Models
                 kq.HOTEN = tb.Rows[0]["HOTEN"].ToString();
                 kq.TENDN = tb.Rows[0]["TENDN"].ToString();
                 kq.EMAIL = tb.Rows[0]["EMAIL"].ToString();
+                kq.DIACHI = tb.Rows[0]["DIACHI"].ToString();
                 kq.MATKHAU = tb.Rows[0]["MATKHAU"].ToString();
             }
             else
@@ -168,6 +174,8 @@ namespace TechieAPI.Models
             tb.AcceptChanges();
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("MaUser", order.MaUser);
+            param.Add("HoTen",order.HoTen);
+            param.Add("SDT", order.SDT);
             param.Add("Address", order.Address);
             param.Add("Message", order.Message);
             param.Add("t", tb);
