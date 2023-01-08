@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace TechieApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CartPage : ContentPage
+    public partial class CartPage : Rg.Plugins.Popup.Pages.PopupPage
     {   
         public CartPage()
         {   
@@ -73,10 +73,18 @@ namespace TechieApp
             var a = e.CurrentSelection.FirstOrDefault() as Product;
             PopupNavigation.PushAsync(new ProductDetailPage(a));
         }
-
+        [Obsolete]
+        private async void Back_btn_Tapped(object sender, EventArgs e)
+        {
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Any())
+            {
+                await PopupNavigation.Instance.PopAsync();
+            }
+        }
+        [Obsolete]
         private void Buy_btn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new OrderPage());
+            PopupNavigation.PushAsync(new OrderPage());
         }
     }
 }

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieApp.LoveProductPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#EEFCFD"
+                    Padding="10">
+            <Frame BackgroundColor="#E1F1FF"
+                       CornerRadius="15"
+                       Margin="0,15,0,0">
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="arrow_back.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Back_btn"
+                                                          Tapped="Back_btn_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Các sản phẩm đã thích: "
+                                   FontSize="18" Margin="15,0,0,0"
+                                   FontAttributes="Bold"
+                                   TextColor="Black" />
+                        </StackLayout>
+                        <CollectionView x:Name="ListLoveProduct"
+                                        SelectionMode="Single"
+                                        SelectionChanged="ListLoveProduct_SelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"
+                                                 Span="1"
+                                                 VerticalItemSpacing="10" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="White"
+                                           CornerRadius="10"
+                                           HeightRequest="160"
+                                           Padding="0"
+                                           Margin="0">
+                                        <Grid Padding="0"
+                                              Margin="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50" />
+                                                <RowDefinition Height="50" />
+                                                <RowDefinition Height="50" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding hinh}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Grid.RowSpan="2"
+                                                   Aspect="Fill" />
+                                            <Label Text="{Binding name}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   FontSize="20"
+                                                   VerticalOptions="Center"
+                                                   Margin="10,0,0,0"
+                                                   TextColor="Black" />
+                                            <Label Text="{Binding price, StringFormat='{0:N0} đ'}"
+                                                   TextColor="Red"
+                                                   Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   FontSize="18"
+                                                   Margin="10,0,0,0"
+                                                   HorizontalOptions="StartAndExpand" />
+                                            <Button Text="Xóa"
+                                                    TextColor="White"
+                                                    Grid.Column="0"
+                                                    Grid.Row="2"
+                                                    Grid.ColumnSpan="2"
+                                                    VerticalOptions="Center"
+                                                    BackgroundColor="Red"
+                                                    Clicked="Button_Clicked" />
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

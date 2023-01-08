@@ -41,6 +41,21 @@ namespace TechieAPI.Controllers
                 return NotFound();
             }
         }
+        [Route("api/ServiceController/ListBlog")]
+        [HttpGet]
+        public IHttpActionResult ListBlog()
+        {
+            try
+            {
+                DataTable tb = Database.LstBlog();
+
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
         [Route("api/ServiceController/LstProductHot")]
         [HttpGet]
         public IHttpActionResult LstProductHot()
@@ -64,6 +79,36 @@ namespace TechieAPI.Controllers
             try
             {
                 DataTable tb = Database.LstProductByType(loai);
+
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+        [Route("api/ServiceController/ListProductBought")]
+        [HttpGet]
+        public IHttpActionResult ListProductBought(int mauser)
+        {
+            try
+            {
+                DataTable tb = Database.LstProductBought(mauser);
+
+                return Ok(tb);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+        [Route("api/ServiceController/SumMoney")]
+        [HttpGet]
+        public IHttpActionResult SumMoney(int mauser)
+        {
+            try
+            {
+                DataTable tb = Database.SumMoneyUser(mauser);
 
                 return Ok(tb);
             }

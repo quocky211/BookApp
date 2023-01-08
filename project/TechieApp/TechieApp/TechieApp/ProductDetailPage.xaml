@@ -5,23 +5,136 @@
                 x:Class="TechieApp.ProductDetailPage"
                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
     <ContentView BackgroundColor="White" HeightRequest="1000">
-        <ScrollView>
-            <StackLayout x:Name="Intro" Orientation="Vertical" VerticalOptions="Start" Margin="0" Padding="10">
-                <Image Source="arrow_back.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="Back_btn"
-                                              Tapped="Back_btn_Tapped" />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Image Source="{Binding hinh}"  Aspect="AspectFill" />
-                    <Label Text="{Binding name}"  FontSize="24" FontAttributes="Bold" TextColor="Black" />
-                <Label Text="{Binding price , StringFormat='{0:N0} đ'}"  TextColor="Red" FontSize="20" FontAttributes="Bold" />
-                    <Button x:Name="Buy_btn" Text="Thêm vào giỏ hàng" TextColor="Azure" BackgroundColor="OrangeRed" FontSize="20"
-                            CornerRadius="10" HorizontalOptions="Center" VerticalOptions="End" Clicked="Buy_btn_Clicked"/>
-                <Label Text="Giới thiệu" TextColor="Black" FontSize="22" FontAttributes="Bold" />
-                <Label Text="{Binding mota}" TextColor="Black" FontSize="22"/>
+        <StackLayout Orientation="Vertical">
+            <ScrollView>
+                <StackLayout x:Name="Intro"
+                             Orientation="Vertical"
+                             VerticalOptions="Start"
+                             Margin="0"
+                             Padding="10">
+                    <Image Source="arrow_back.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Back_btn"
+                                                  Tapped="Back_btn_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="{Binding hinh}"
+                           Aspect="AspectFill" />
+                    <Label Text="{Binding price , StringFormat='{0:N0} đ'}"
+                           TextColor="Red"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding name}"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                    <Frame Background="#EEFCFD"
+                           CornerRadius="15"
+                           Margin="0,15,0,0"
+                           HeightRequest="250">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Sản phẩm liên quan"
+                                   TextColor="Black"
+                                   FontSize="18"
+                                   FontAttributes="Bold" />
+                            <CollectionView x:Name="LstRelated"
+                                            SelectionMode="Single"
+                                            SelectionChanged="LstRelated_SelectionChanged">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Horizontal"
+                                                     HorizontalItemSpacing="15" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame BackgroundColor="White"
+                                               CornerRadius="10"
+                                               HeightRequest="190"
+                                               WidthRequest="160"
+                                               Padding="0"
+                                               Margin="0">
+                                            <Grid Padding="0"
+                                                  Margin="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Image Source="{Binding hinh}"
+                                                       Grid.Row="0"
+                                                       Aspect="Fill"
+                                                       WidthRequest="90"
+                                                       HeightRequest="90" />
+                                                <StackLayout Grid.Row="1"
+                                                             Orientation="Vertical">
+                                                    <Label Text="{Binding name}"
+                                                           FontSize="20"
+                                                           Margin="10,0,0,0"
+                                                           TextColor="Black" />
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding price, StringFormat='{0:N0} đ'}"
+                                                               TextColor="Red"
+                                                               FontSize="18"
+                                                               Margin="10,0,0,0"
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Image x:Name="LikeImg"
+                                                               Source="FavouriteBlackIcon.png"
+                                                               HorizontalOptions="End"
+                                                               VerticalOptions="Center"
+                                                               Margin="0,0,10,0"
+                                                               Aspect="AspectFill"
+                                                               HeightRequest="20"
+                                                               WidthRequest="20">
+                                                            <Image.GestureRecognizers>
+                                                                <TapGestureRecognizer x:Name="ImgAddToWishList"
+                                                                                      Tapped="ImgAddToWishList_Tapped"
+                                                                                      NumberOfTapsRequired="1" />
+                                                            </Image.GestureRecognizers>
+                                                        </Image>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Giới thiệu"
+                           TextColor="Black"
+                           FontSize="19"
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding mota}"
+                           TextColor="Black"
+                           FontSize="18" />
+                </StackLayout>
+            </ScrollView>
+            <BoxView HeightRequest="0.5" Margin="0" Opacity="0.6" 
+                     BackgroundColor="Black" />
+            <StackLayout x:Name="btn_feature" Orientation="Horizontal" Padding="10"
+                         VerticalOptions="End">
+                <Button x:Name="addCart_btn"
+                        Text="Thêm vào giỏ hàng"
+                        TextColor="Azure"
+                        BackgroundColor="#6BD6F8"
+                        CornerRadius="10"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Clicked="addCart_btn_Clicked_1" />
+                <Button x:Name="Buy_btn"
+                        Text="Mua ngay"
+                        TextColor="Azure"
+                        BackgroundColor="OrangeRed"
+                        CornerRadius="10"
+                        WidthRequest="100"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Clicked="Buy_btn_Clicked_1" />
             </StackLayout>
-        </ScrollView>
+            <BoxView HeightRequest="1"
+                     BackgroundColor="Black" />
+        </StackLayout>
     </ContentView>
     <pages:PopupPage.Animation>
         <animations:MoveAnimation PositionIn="Bottom"

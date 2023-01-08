@@ -13,6 +13,8 @@ namespace TechieAPI.Models
         public string MATKHAU { get; set; }
         public string DIACHI { get; set; }
         public string EMAIL { get; set; }
+        public string SDT { get; set; }
+        public List<Product> LstLoveProduct { get; set; }
 
     }
 }

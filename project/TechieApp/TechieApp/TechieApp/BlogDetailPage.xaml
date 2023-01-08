@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieApp.BlogDetailPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="BlogDetail"
+                         Orientation="Vertical"
+                         VerticalOptions="Start"
+                         Margin="0"
+                         Padding="10">
+                <Image Source="arrow_back.png"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="Back_btn"
+                                              Tapped="Back_btn_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="{Binding Hinh}"
+                       Aspect="AspectFill" />
+                <Label Text="Nội dung"
+                       TextColor="Black"
+                       FontSize="19"
+                       FontAttributes="Bold" />
+                <Label Text="{Binding NoiDung}"
+                       TextColor="Black"
+                       FontSize="17" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

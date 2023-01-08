@@ -1,109 +1,136 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TechieApp.CartPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-            <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="White">
-                <Label Text="Giỏ hàng của tôi" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="15"/>
-                <ScrollView Padding="15">
-                <CollectionView x:Name="Lstprocarts"
-                                SelectionMode="Single"
-                                SelectionChanged="Lstprocarts_SelectionChanged">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"
-                                         Span="1"
-                                         VerticalItemSpacing="10" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Padding="10" ColumnSpacing="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="60"/>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="50"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding hinh}"
-                                       Grid.Row="0"
-                                       Grid.Column="0"
-                                       Grid.RowSpan="4"
-                                       Aspect="Fill"/>
-                                <Label Text="{Binding name}"
-                                       Grid.Row="0"
-                                       Grid.Column="1"
-                                       FontSize="20"
-                                       TextColor="Black" />
-                                <Label Text="{Binding price , StringFormat='{0:N0} đ'}"
-                                       Grid.Row="1"
-                                       Grid.Column="1"
-                                       TextColor="Red"
-                                       FontSize="18" />
-                                <Label Text="Số lượng: " FontSize="20" TextColor="Black" Grid.Row="2" Grid.Column="1"/>
-                                <Entry Text="{Binding SLuong}"
-                                       Grid.Row="3"
-                                       Grid.Column="1"
-                                       TextColor="Black"
-                                       FontSize="18" />
-                                <Button x:Name="Update_btn"
-                                        Text="Cập nhật"
-                                        BackgroundColor="#6BD6F8"
-                                        CornerRadius="10"
-                                        Grid.Row="4"
-                                        Grid.Column="0"
-                                        TextColor="White"
-                                        Clicked="Update_btn_Clicked" />
-                                <Button x:Name="Delete_btn"
-                                        Text="Xóa"
-                                        Grid.Row="4"
-                                        CornerRadius="10"
-                                        BackgroundColor="#FF0000"
-                                        TextColor="White"
-                                        Grid.Column="1"
-                                        Clicked="Delete_btn_Clicked" />
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </ScrollView>
-            <StackLayout x:Name="SumMoney"
-                         VerticalOptions="End">
-                <BoxView HeightRequest="1"
-                         BackgroundColor="Black" />
-                <StackLayout Orientation="Horizontal" Padding="15">
-                    <StackLayout Orientation="Vertical">
-                        <Label Text="Tổng tiền: "
-                               TextColor="Black"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               FontSize="20"
-                               FontAttributes="Bold"></Label>
-                        <Label x:Name="txtSum"
-                               Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
-                               FontSize="20"
-                               FontAttributes="Bold"
-                               TextColor="Red"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </StackLayout>
-                    <Button x:Name="Buy_btn"
-                            Text="Mua ngay"
-                            TextColor="White"
-                            BackgroundColor="Red"
-                            CornerRadius="15"
-                            Clicked="Buy_btn_Clicked"
-                            HeightRequest="50"
-                            HorizontalOptions="EndAndExpand"
-                            VerticalOptions="Center" />
+    <ContentView>
+        <Frame BackgroundColor="#EEFCFD" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Padding="10"
+               HasShadow="False">
+            <StackLayout Orientation="Vertical"
+                         Spacing="0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="arrow_back.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Back_btn"
+                                                  Tapped="Back_btn_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Giỏ hàng của tôi"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="15,0,0,0" />
                 </StackLayout>
-                <BoxView HeightRequest="1"
-                         BackgroundColor="Black" />
+                <ScrollView Padding="10">
+                    <CollectionView x:Name="Lstprocarts"
+                                    SelectionMode="Single"
+                                    SelectionChanged="Lstprocarts_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                             Span="1"
+                                             VerticalItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="White" CornerRadius="10" Margin="0" Padding="0" >
+                                    <Grid ColumnSpacing="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="40" />
+                                            <RowDefinition Height="50" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding hinh}"
+                                               Grid.Row="0"
+                                               Grid.Column="0"
+                                               Grid.RowSpan="4"
+                                               Aspect="Fill" />
+                                        <Label Text="{Binding name}"
+                                               Grid.Row="0" VerticalOptions="Center"
+                                               Grid.Column="1"
+                                               FontSize="20"
+                                               TextColor="Black" />
+                                        <Label Text="{Binding price , StringFormat='{0:N0} đ'}"
+                                               Grid.Row="1"
+                                               Grid.Column="1"
+                                               TextColor="Red"
+                                               FontSize="18" />
+                                        <Label Text="Số lượng: "
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Row="2"
+                                               Grid.Column="1" />
+                                        <Entry Text="{Binding SLuong}"
+                                               Grid.Row="3"
+                                               Grid.Column="1"
+                                               TextColor="Black"
+                                               FontSize="18" />
+                                        <Button x:Name="Update_btn"
+                                                Text="Cập nhật"
+                                                BackgroundColor="#6BD6F8"
+                                                CornerRadius="10"
+                                                Grid.Row="4"
+                                                Grid.Column="0"
+                                                TextColor="White"
+                                                Clicked="Update_btn_Clicked" />
+                                        <Button x:Name="Delete_btn"
+                                                Text="Xóa"
+                                                Grid.Row="4"
+                                                CornerRadius="10"
+                                                BackgroundColor="#FF0000"
+                                                TextColor="White"
+                                                Grid.Column="1"
+                                                Clicked="Delete_btn_Clicked" />
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+                <StackLayout x:Name="SumMoney"
+                             VerticalOptions="End">
+                    <BoxView HeightRequest="1"
+                             BackgroundColor="Black" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="15">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Tổng tiền: "
+                                   TextColor="Black"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontSize="20"
+                                   FontAttributes="Bold"></Label>
+                            <Label x:Name="txtSum"
+                                   Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="Red"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                        <Button x:Name="Buy_btn"
+                                Text="Mua ngay"
+                                TextColor="White"
+                                BackgroundColor="Red"
+                                CornerRadius="15"
+                                Clicked="Buy_btn_Clicked"
+                                HeightRequest="50"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center" />
+                    </StackLayout>
+                    <BoxView HeightRequest="1"
+                             BackgroundColor="Black" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        </Frame>
+    </ContentView>
+</pages:PopupPage>

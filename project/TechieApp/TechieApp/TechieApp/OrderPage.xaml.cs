@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace TechieApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderPage : ContentPage
+    public partial class OrderPage : Rg.Plugins.Popup.Pages.PopupPage
     {
         public OrderPage()
         {
@@ -25,6 +25,10 @@ namespace TechieApp
             if (txtName.Text == "" || txtName.Text == null)
             {
                 txtName.Text = User.user.HOTEN;
+            }
+            if (txtsdt.Text == "" || txtsdt.Text == null)
+            {
+                txtsdt.Text = User.user.SDT;
             }
             User.order.Sumbf = User.order.SumMoney;
             User.order.SumMoney += 30000;
@@ -67,6 +71,14 @@ namespace TechieApp
         private void onl_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             PopupNavigation.PushAsync(new PopupPayment());
+        }
+        [Obsolete]
+        private async void Back_btn_Tapped(object sender, EventArgs e)
+        {
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Any())
+            {
+                await PopupNavigation.Instance.PopAsync();
+            }
         }
     }
 }

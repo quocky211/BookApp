@@ -78,6 +78,25 @@ namespace TechieApp
                 imgSource.Source = "FavouriteBlackIcon.png";
             }
 
+            Image image = (Image)sender;
+            Product selectedProduct = (Product)image.BindingContext;
+            bool chon = false;
+            if (User.user.LstLoveProduct!=null)
+            {
+                foreach (Product product in User.user.LstLoveProduct)
+                {
+                    if (selectedProduct.maSp == product.maSp)
+                    {
+                        chon = true;
+                        break;
+                    }
+                }
+            }
+            if (chon == false)
+            {
+                User.user.LstLoveProduct.Add(selectedProduct);
+                DisplayAlert("Thông báo", "Đã thêm vào  danh sách yêu thích", "OK");
+            }
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
@@ -103,6 +122,11 @@ namespace TechieApp
         {
             var a = e.CurrentSelection.FirstOrDefault() as Product;
             PopupNavigation.PushAsync(new ProductDetailPage(a));
+        }
+        [Obsolete]
+        private void Cart_btn_Tapped(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new CartPage());
         }
     }
 }

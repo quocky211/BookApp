@@ -5,7 +5,7 @@
                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                  x:Class="TechieApp.PopupPayment">
     <ContentView>
-        <Frame BackgroundColor="Azure"
+        <Frame BackgroundColor="#EEFCFD"
                CornerRadius="15"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="FillAndExpand"
@@ -47,7 +47,7 @@
                            FontSize="18"
                            TextColor="Black" />
                 </StackLayout>
-                <Label Text="Sau khi hoàn tất chuyển khoản, nhân viên sẽ gọi cho bạn để xác nhận đơn hàng"
+                <Label Text="Sau khi hoàn tất chuyển khoản,vui lòng vẫn nhấn thanh toán, nhân viên sẽ gọi cho bạn để xác nhận đơn hàng"
                        FontSize="20"
                        TextColor="Black"
                        HorizontalOptions="Center"

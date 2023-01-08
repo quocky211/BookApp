@@ -7,7 +7,19 @@
         <ScrollView BackgroundColor="#EEFCFD" Padding="10">
             <StackLayout Orientation="Vertical" Spacing="0">
                 <Frame  HeightRequest="30" Padding="10" HasShadow="False" CornerRadius="10">
-                    <SearchBar Placeholder="Nhập sản phẩm..." PlaceholderColor="Gray" HeightRequest="60" TextChanged="SearchBar_TextChanged" BackgroundColor="White" CancelButtonColor="Red" />
+                    <StackLayout Orientation="Horizontal">
+                        <SearchBar Placeholder="Nhập sản phẩm..."
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="260"
+                                   TextChanged="SearchBar_TextChanged"
+                                   BackgroundColor="Transparent"
+                                   CancelButtonColor="Red" />
+                        <Image Source="cart_logo.png" Margin="15,0,10,0" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="Cart_btn" Tapped="Cart_btn_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
                 </Frame>
                 <CarouselView x:Name="banner" HeightRequest="170" Margin="0,15,0,0">
                     <CarouselView.ItemTemplate>

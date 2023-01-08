@@ -24,9 +24,12 @@ namespace TechieApp
         }
 
         [Obsolete]
-        private void Close_btn_Tapped(object sender, EventArgs e)
+        private async void Close_btn_Tapped(object sender, EventArgs e)
         {
-            PopupNavigation.PopAsync();
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Any())
+            {
+                await PopupNavigation.Instance.PopAsync();
+            }
         }
         private void RangeSlider_ValueChanged(object sender, EventArgs e)
         {

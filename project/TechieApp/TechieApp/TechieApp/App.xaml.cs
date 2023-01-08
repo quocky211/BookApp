@@ -14,6 +14,7 @@ namespace TechieApp
             User.user = new User();
             User.order = new Order();
             User.order.LstProduct = new System.Collections.Generic.List<Product>();
+            User.user.LstLoveProduct = new System.Collections.Generic.List<Product>();
         }
 
         protected override void OnStart()

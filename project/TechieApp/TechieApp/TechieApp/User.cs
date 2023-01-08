@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace TechieApp
@@ -12,9 +13,12 @@ namespace TechieApp
         public string MATKHAU { get; set; }
         public string EMAIL { get; set; }
         public string DIACHI { get; set; }
+        public string SDT { get; set; }
 
         public static User user;
 
         public static Order order;
+        public List<Product> LstLoveProduct { get; set; }
+
     }
 }

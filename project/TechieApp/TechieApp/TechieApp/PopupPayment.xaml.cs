@@ -19,9 +19,12 @@ namespace TechieApp
             InitializeComponent();
         }
         [Obsolete]
-        private void Close_Tapped(object sender, EventArgs e)
+        private async void Close_Tapped(object sender, EventArgs e)
         {
-            PopupNavigation.PopAsync();
+            if (Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Any())
+            {
+                await PopupNavigation.Instance.PopAsync();
+            }
 
         }
     }

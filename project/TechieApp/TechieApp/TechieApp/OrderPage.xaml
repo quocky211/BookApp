@@ -1,63 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TechieApp.OrderPage"
              Title=" Thanh toán">
-    <ContentPage.Content>
-        <StackLayout x:Name="DoneOrder" Padding="10">
-            <Entry x:Name="txtName" Placeholder="Họ và tên người nhận "/>
-            <Entry x:Name="txtsdt" Placeholder="Số điện thoại"/>
-            <Editor x:Name="txtAddress" Placeholder="Nhập địa chỉ"/>
-            <Editor x:Name="txtMessage" Placeholder="Lời nhắn"/>
-            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                <Label Text="Tổng: "
-                       TextColor="Black"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="20"
-                       FontAttributes="Bold" />
-                <Label Text="{Binding Sumbf, StringFormat='{0:N0} đ'}" TextColor="Red" FontAttributes="Bold" FontSize="18"  HorizontalOptions="End"/>
+    <ContentView>
+        <Frame BackgroundColor="White" HasShadow="False">
+            <StackLayout x:Name="DoneOrder"
+                         Padding="10">
+                <Image Source="arrow_back.png"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="Back_btn"
+                                              Tapped="Back_btn_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Entry x:Name="txtName"
+                       Placeholder="Họ và tên người nhận " />
+                <Entry x:Name="txtsdt"
+                       Placeholder="Số điện thoại" />
+                <Editor x:Name="txtAddress"
+                        Placeholder="Nhập địa chỉ" />
+                <Editor x:Name="txtMessage"
+                        Placeholder="Lời nhắn" />
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,15,0,0">
+                    <Label Text="Tổng: "
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding Sumbf, StringFormat='{0:N0} đ'}"
+                           TextColor="Red"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="End" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Phí vận chuyển: "
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+                    <Label Text="30.000 đ"
+                           TextColor="Red"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="End" />
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand"
+                         HeightRequest="1"
+                         BackgroundColor="Black" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tổng: "
+                           TextColor="Black"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+                    <Label x:Name="SumMoney"
+                           Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
+                           TextColor="Red"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="End" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,25,0,0">
+                    <CheckBox x:Name="home"
+                              Color="Black"
+                              CheckedChanged="home_CheckedChanged" />
+                    <Label Text="Thanh toán tại nhà"
+                           FontSize="18"
+                           TextColor="Black" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,10,0,0">
+                    <CheckBox x:Name="onl"
+                              Color="Black"
+                              CheckedChanged="onl_CheckedChanged" />
+                    <Label Text="Thanh toán online"
+                           FontSize="18"
+                           TextColor="Black" />
+                </StackLayout>
+                <Button x:Name="Thanhtoan"
+                        Text="Thanh toán"
+                        BackgroundColor="#6BD6F8"
+                        Clicked="Thanhtoan_Clicked" TextColor="White"  CornerRadius="10"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Phí vận chuyển: "
-                       TextColor="Black"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="20"
-                       FontAttributes="Bold" />
-                <Label Text="30.000 đ"
-                       TextColor="Red"
-                       FontAttributes="Bold"
-                       FontSize="18"
-                       HorizontalOptions="End" />
-            </StackLayout>
-            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" BackgroundColor="Black"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Tổng: "
-                       TextColor="Black"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="20"
-                       FontAttributes="Bold" />
-                <Label x:Name="SumMoney"
-                       Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
-                       TextColor="Red"
-                       FontAttributes="Bold"
-                       FontSize="18"
-                       HorizontalOptions="End" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="0,25,0,0">
-                <CheckBox x:Name="home" Color="Black" CheckedChanged="home_CheckedChanged"/>
-                <Label Text="Thanh toán tại nhà"
-                       FontSize="18" TextColor="Black"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal"
-                         Margin="0,10,0,0">
-                <CheckBox x:Name="onl" Color="Black" CheckedChanged="onl_CheckedChanged" />
-                <Label Text="Thanh toán online"
-                       FontSize="18" TextColor="Black"/>
-            </StackLayout>
-            <Button x:Name="Thanhtoan" Text="Thanh toán" BackgroundColor="Aqua" Clicked="Thanhtoan_Clicked"/>
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        </Frame>
+    </ContentView>
+</pages:PopupPage>

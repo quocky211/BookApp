@@ -26,12 +26,13 @@ namespace TechieApp
             var user = JsonConvert.DeserializeObject<User>(kq);
             if (user.HOTEN != "" && user.HOTEN != null)
             {
-                await DisplayAlert("Thông báo", " Chào bạn :" + user.HOTEN, "OK");
+                await DisplayAlert("Thông báo", " Chào bạn: " + user.HOTEN, "OK");
                 User.user = user;
+                User.user.LstLoveProduct = new List<Product>();
                 await Shell.Current.GoToAsync("//Home");
             }
             else
-                await DisplayAlert("Thông báo", " Đăng Nhập Sai :", "OK");
+                await DisplayAlert("Thông báo", " Đăng Nhập Sai", "OK");
 
         }
 

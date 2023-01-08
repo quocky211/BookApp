@@ -109,11 +109,27 @@ namespace TechieAPI.Models
         {
             return Read_Table("ListProductHot");
         }
+        public static DataTable LstBlog()
+        {
+            return Read_Table("ListBlog");
+        }
         public static DataTable LstProductByType(int loai)
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("loai", loai);
             return Read_Table("ListProductByType", param); 
+        }
+        public static DataTable LstProductBought(int mauser)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("mauser", mauser);
+            return Read_Table("ListProductBought", param);
+        }
+        public static DataTable SumMoneyUser(int mauser)
+        {
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("mauser", mauser);
+            return Read_Table("SumMoney", param);
         }
 
         public static User ThemUser(User user)
@@ -124,6 +140,7 @@ namespace TechieAPI.Models
             param.Add("MATKHAU", user.MATKHAU);
             param.Add("DIACHI", user.DIACHI);
             param.Add("EMAIL", user.EMAIL);
+            param.Add("SDT", user.SDT);
             int kq = int.Parse(Exec_Command("AddUser", param).ToString());
             if(kq>-1)
             {
@@ -148,6 +165,7 @@ namespace TechieAPI.Models
                 kq.EMAIL = tb.Rows[0]["EMAIL"].ToString();
                 kq.DIACHI = tb.Rows[0]["DIACHI"].ToString();
                 kq.MATKHAU = tb.Rows[0]["MATKHAU"].ToString();
+                kq.SDT = tb.Rows[0]["SDT"].ToString();
             }
             else
                 kq.MA = 0;

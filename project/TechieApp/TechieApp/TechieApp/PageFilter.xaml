@@ -14,8 +14,8 @@
             <Frame CornerRadius="15" BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="250">
                 <StackLayout Margin="-20,0,-20,0">
                     <Image Source="close.png"
-                           WidthRequest="20"
-                           HeightRequest="20">
+                           WidthRequest="25"
+                           HeightRequest="25">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer x:Name="Close_btn"
                                                   Tapped="Close_btn_Tapped" />

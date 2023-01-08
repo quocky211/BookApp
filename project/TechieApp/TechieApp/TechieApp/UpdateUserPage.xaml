@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechieApp.UpdateUserPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Frame BackgroundColor="#EEFCFD">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="arrow_back.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Back_btn"
+                                                  Tapped="Back_btn_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Thông tin cá nhân "
+                           FontSize="24"
+                           Margin="15,0,0,0"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                </StackLayout>
+                <Frame x:Name="thanhvien" WidthRequest="400"
+                       CornerRadius="15"
+                       HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="txtthanhvien"
+                               TextColor="White"
+                               FontSize="20"
+                               FontAttributes="Bold" />
+                        <Label Text="Tên đăng nhập" Margin="0,20,0,0"
+                               FontSize="14"
+                               TextColor="White" />
+                        <Label x:Name="txtdangnhap"
+                               FontSize="14"
+                               TextColor="White"
+                               FontAttributes="Bold" />
+                        <Label Text="Thời gian hiệu lực"
+                               FontSize="14"
+                               TextColor="White" />
+                        <Label Text="30/6/2023"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Horizontal" Margin="15">
+                    <Label Text="Mức chi tiêu: " FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+                    <Label x:Name="txtSumMoney"
+                           FontSize="20"
+                           TextColor="Black" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15">
+                    <Label Text="Họ và tên:" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                    <Label x:Name="txthoten" TextColor="Black" FontSize="18"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15">
+                    <Label Text="Địa chỉ:"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                    <Label x:Name="txtdiachi"
+                           TextColor="Black"
+                           FontSize="18" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15">
+                    <Label  Text="Số điện thoại:"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                    <Label x:Name="txtsdt"
+                           TextColor="Black"
+                           FontSize="18" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="15">
+                    <Label  Text="Email:"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                    <Label x:Name="txtemail"
+                           TextColor="Black"
+                           FontSize="18" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

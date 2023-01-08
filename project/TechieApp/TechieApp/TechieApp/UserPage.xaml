@@ -32,22 +32,15 @@
                                     Grid.Row="0"
                                     Grid.RowSpan="2"
                                     Margin="10,0,0,0" />
-                    <Label x:Name="txtname"
-                           FontAttributes="Bold"
-                           TextColor="Black"
+                    <Image Source="logout_logo.png" HeightRequest="30" WidthRequest="30" Margin="0,0,15,0"
+                           Grid.Row="0" Opacity="0.6"
                            Grid.Column="1"
-                           Grid.Row="0"
-                           VerticalOptions="End"
-                           FontSize="18"
-                           Margin="10,0,0,0" />
-                    <Label x:Name="txtgmail"
-                           FontAttributes="Bold"
-                           TextColor="Black"
-                           Grid.Column="1"
-                           Grid.Row="1"
-                           VerticalOptions="Start"
-                           FontSize="18"
-                           Margin="10,0,0,0" />
+                           HorizontalOptions="EndAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="logout" Tapped="logout_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    
                 </Grid>
                 <StackLayout Orientation="Vertical"
                              Padding="15"
@@ -62,10 +55,15 @@
                         <Image Source="logoUser.png"
                                HeightRequest="25"
                                WidthRequest="25" />
-                        <Label Text="Cập nhật thông tin cá nhân"
+                        <Label Text="Thông tin cá nhân"
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="updateUser"
+                                                      Tapped="updateUser_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout x:Name="Productbuy"
                                  Orientation="Horizontal"
@@ -76,7 +74,11 @@
                         <Label Text="Lịch sử mua hàng"
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="boughtproduct" Tapped="boughtproduct_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout x:Name="Productlove"
                                  Orientation="Horizontal"
@@ -87,7 +89,12 @@
                         <Label Text="Sản phẩm yêu thích "
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="loveproduct"
+                                                      Tapped="loveproduct_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <Label Text="THÔNG TIN HỖ TRỢ"
                            FontAttributes="Bold"
@@ -102,7 +109,11 @@
                         <Label Text="Sự kiện/khuyến mãi"
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="voucher" Tapped="voucher_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout  Orientation="Horizontal"
                                   Margin="10">
@@ -112,7 +123,11 @@
                         <Label Text="Về chúng tôi"
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="about" Tapped="about_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout  Orientation="Horizontal"
                                   Margin="10">
@@ -122,7 +137,11 @@
                         <Label Text="Hỗ trợ khách hàng "
                                FontSize="17"
                                TextColor="Black"
-                               Margin="10,0,0,0" />
+                               Margin="10,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="help" Tapped="help_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Orientation="Vertical"

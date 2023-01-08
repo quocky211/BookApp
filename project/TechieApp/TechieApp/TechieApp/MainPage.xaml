@@ -17,9 +17,9 @@
              Title="Danh mục">
             <ShellContent ContentTemplate="{DataTemplate local:TypeProductPage}" />
         </Tab>
-        <Tab Icon="logoCart.png"
-             Title="Giỏ hảng">
-            <ShellContent ContentTemplate="{DataTemplate local:CartPage}" />
+        <Tab Icon="blog_logo.png"
+             Title="Blog">
+            <ShellContent ContentTemplate="{DataTemplate local:BlogPage}" />
         </Tab>
         <Tab Icon="logoUser.png"
              Title="Tài khoản">
