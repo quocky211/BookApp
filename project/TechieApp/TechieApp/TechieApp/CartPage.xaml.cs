@@ -19,10 +19,10 @@ namespace TechieApp
         {   
             InitializeComponent();
             Lstprocarts.ItemsSource = User.order.LstProduct;
-            User.order.SumMoney = 0;
+            User.order.Sumbf = 0;
             foreach (Product product in User.order.LstProduct)
             {
-                User.order.SumMoney += (product.price * product.SLuong);
+                User.order.Sumbf += (product.price * product.SLuong);
             }
             SumMoney.BindingContext = User.order;
         }
@@ -40,10 +40,10 @@ namespace TechieApp
                 }
             }
 
-            User.order.SumMoney = 0;
+            User.order.Sumbf = 0;
             foreach (Product product in User.order.LstProduct)
             {
-                User.order.SumMoney += (product.price * product.SLuong);
+                User.order.Sumbf += (product.price * product.SLuong);
             }
             SumMoney.BindingContext = null;
             SumMoney.BindingContext = User.order;
@@ -58,7 +58,7 @@ namespace TechieApp
                 if (selectedProduct.maSp == product.maSp)
                 {
                     User.order.LstProduct.Remove(selectedProduct);
-                    User.order.SumMoney = User.order.SumMoney - (product.price*product.SLuong);
+                    User.order.Sumbf = User.order.Sumbf - (product.price*product.SLuong);
                     SumMoney.BindingContext = null;
                     SumMoney.BindingContext = User.order;
                     break;

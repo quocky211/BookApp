@@ -30,8 +30,7 @@ namespace TechieApp
             {
                 txtsdt.Text = User.user.SDT;
             }
-            User.order.Sumbf = User.order.SumMoney;
-            User.order.SumMoney += 30000;
+            User.order.SumMoney = User.order.Sumbf + 30000;
             DoneOrder.BindingContext = User.order;
            
         }

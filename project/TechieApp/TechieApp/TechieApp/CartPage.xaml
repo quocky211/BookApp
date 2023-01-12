@@ -110,7 +110,7 @@
                                    FontSize="20"
                                    FontAttributes="Bold"></Label>
                             <Label x:Name="txtSum"
-                                   Text="{Binding SumMoney , StringFormat='{0:N0} đ'}"
+                                   Text="{Binding Sumbf, StringFormat='{0:N0} đ'}"
                                    FontSize="20"
                                    FontAttributes="Bold"
                                    TextColor="Red"
